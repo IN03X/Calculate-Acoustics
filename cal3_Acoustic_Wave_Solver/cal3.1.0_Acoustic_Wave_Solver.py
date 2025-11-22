@@ -14,9 +14,9 @@ class Parameters:
                 z_end: float = 100, 
                 dz: float = 1e-2,
                 x_start: float = 0.0, 
-                x_end: float = 20, 
+                x_end: float = 40, 
                 dx: float = 1e-2,
-                source_width: float = 1/5,
+                source_width: float = 1/20,
                  ):
         k = 2*np.pi*f/343
         if Equation == "PA":
@@ -280,7 +280,7 @@ class Evaluation:
 
 def main():
     Equation = "PACC" # PA, PACC: Paraxial Approximation, Paraxial Approximation in Cylindrical Coordinates
-    Iterator_Method = "Dufort_Frankel" # Forward_Euler, Dufort_Frankel,Backward_Euler # 221840194 Runbang Wang: 经典显式, Dufort_Frankel显式, 经典隐式
+    Iterator_Method = "Backward_Euler" # Forward_Euler, Dufort_Frankel,Backward_Euler # 221840194 Runbang Wang: 经典显式, Dufort_Frankel显式, 经典隐式
     Plot_Method = "z_x" # z_x, z_xat0
     p = Parameters(Equation=Equation, Iterator_Method=Iterator_Method, Plot_Method=Plot_Method)
     bnd_source = Boundary(p).generate_bnd_source()
